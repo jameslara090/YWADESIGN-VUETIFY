@@ -2,11 +2,12 @@
      <v-carousel
       v-model="currentSlide"
       :interval="slideInterval"
-      height="520"
-      show-arrows="hover"
-      show-dots
-      hide-delimiter-background
+      :show-arrows="false"
+      height="500"
+      hide-delimiters
       cycle
+      class="xc4565"
+      transition="slide-x-transition"
       >
         <v-carousel-item v-for="(item, index) in items" :key="index">      
                 <v-sheet
@@ -17,14 +18,15 @@
                   :class="img-opacity" 
                   
                 >
-              <v-img :src="item.src" class="img-opacity" height="600" :alt="item.alt"></v-img>
+              <v-img :src="item.src" class="img-opacity" height="620" :alt="item.alt"></v-img>
                 <div class="text-overlay">
-                      <div class="text-h3">
-                      YWA is now inviting you to Apply Abroad. We'll Help you to achieved your Dreams
-                        of becoming Professional
+                      <div class="text-h1 font-weight-bold">
+                        Helping People Achieve Thier Goals
                       </div>
+                      <p class="text-h5">YWA is now inviting you to Apply Abroad. We'll Help you to achieved your Dreams
+                        of becoming Professional</p>
                       <br>
-                      <v-btn color="primary" :class="text-h2">
+                      <v-btn rounded="xl" size="x-large" color="primary">
                           Apply Now
                       </v-btn>
 
@@ -37,10 +39,9 @@
   <style scoped>
   .text-overlay {
     position: absolute;
-    top: 50%; /* Positions the text 50% from the top */
-    left: 50%; /* Positions the text 50% from the left */
+    top: 53%; /* Positions the text 50% from the top */
+    left: 40%; /* Positions the text 50% from the left */
     transform: translate(-50%, -50%); /* Centers the text using negative translate */
-    text-align: center; /* Centers the text horizontally */
     color: #fff; /* Optional text color for the overlay */
     padding: 10px; /* Optional padding for the overlay */
   }
@@ -54,8 +55,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(25, 40, 73, 0.5); /* Change the color and opacity values as per your requirement */
+  background-color: rgba(8, 51, 145, 0.5); /* Change the color and opacity values as per your requirement */
  }
+ .xc4565{
+  border-top-left-radius: 280px;
+  border-bottom-right-radius: 300px;
+  padding-top: 0px;
+  padding-right: 20px;
+  padding-left: 20px;
+ }
+
 </style>
 
 

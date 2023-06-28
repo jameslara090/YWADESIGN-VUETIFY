@@ -1,22 +1,25 @@
 <template>
    <v-app :style="{background: $vuetify.theme.themes.light.background}">
     <v-row>
-      <v-col cols="12" sm="12" class="bg-gradient">
+      <v-col cols="12" class="pt-10 pb-10" sm="12">
            <VueCarousel />
       </v-col>
-      <v-col cols="12" sm="12" class="bg-gradient">
+      <v-col cols="12" sm="12">
         <v-container>
-            <searchJob />
-            <h2  class="pt-5 pb-3 availableJobsHeading" justify="cenetr" align="center">Avialable Jobs</h2>
-            <div class="pt-1 pb-10">
-            <availableJobs />
-           </div>
+          <about />
         </v-container>
+      </v-col>
+      <v-col cols="12" sm="12" class="bg-gradient">
+        <AppProcess />
+      </v-col>
+
+      <v-col cols="12">
+        <Hiring/>
       </v-col>
     
       <v-col cols="12 pb-10">
         <v-container color="primary">
-          <ToApplicant />
+          
         </v-container>
       </v-col>
   
@@ -26,25 +29,24 @@
 </template>
 
 <script>
-import searchJob from '../components/HomeJobSearch.vue'
-import availableJobs from '../components/AvailableJob.vue'
-import ToApplicant from '../components/ToOurApp.vue'
 import VueCarousel from '../components/HomeCarousel.vue'
 import YwaFooter from '../components/FooterLayout.vue'
-
+import about from '../components/AboutHome.vue'
+import AppProcess from '../components/ApplicationProcess.vue'
+import Hiring from '../components/WeAreHiring.vue'
 
 
 export default {
   name: 'HomeView',
   components :{
-    searchJob,
-    availableJobs,
-    ToApplicant,
     VueCarousel,
-    YwaFooter
+    YwaFooter,
+    about,
+    AppProcess,
+    Hiring
+
   
-  },
-  
+  }, 
 };
 </script>
 
@@ -71,10 +73,6 @@ export default {
       height: 100%;
       background-color: rgba(70, 23, 180, 0.5); /* Change the color and opacity values as per your requirement */
      }
-     .pli_style{
-      background-image: linear-gradient(to right top, #05357e, #082d79, #0c2573, #101d6d, #141466);
-      clip-path: polygon(34% 9%, 68% 9%, 100% 0, 100% 100%, 69% 93%, 28% 93%, 0 100%, 0 0);
-     }
      .bg-gradient{
       background: rgb(2,0,36);
              background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(7,62,156,1) 34%, rgba(5,103,183,1) 50%, rgba(5,91,175,1) 59%, rgba(5,97,179,1) 70%, rgba(9,9,121,1) 83%, rgba(0,212,255,1) 100%);
@@ -83,5 +81,8 @@ export default {
        font-family: sans-serif;
        letter-spacing: 4px;
        color: #f8f3f3;
+     }
+     .vcard-radius{
+       border-radius: 20px;
      }
 </style>

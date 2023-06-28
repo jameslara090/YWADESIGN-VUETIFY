@@ -33,7 +33,7 @@
           <v-col cols="12" sm="3">
             <v-container>
                   <h3 class="white--text pl-4">QUICK LINKS</h3>
-                  <v-card-text class="pt-4">Clients</v-card-text>
+                 <v-card-text class="pt-4">Clients</v-card-text>
                   <v-card-text class="pt-0">Job Search</v-card-text>
                   <v-card-text class="pt-0">Our Industries</v-card-text>
                   <v-card-text class="pt-0">Ou Teams</v-card-text>
@@ -43,7 +43,7 @@
               <v-container>
                 <h3 class="pl-10 pb-2">CONTACT US</h3>
                 <v-card-text class="pt-0"><v-btn icon size="small" class="mx-4 white--text"><v-icon>mdi-map-marker</v-icon></v-btn>1268 General Luna Street, Paco, Manila 1007</v-card-text>
-                <v-card-text class="pt-0"><v-btn icon size="small" class="mx-4 white--text"><v-icon>mdi-cellphone</v-icon></v-btn>(Recruitment Division)+639487249493</v-card-text>
+                <v-card-text class="pt-0"><v-btn icon size="small" class="mx-4 white--text"><v-icon>mdi-cellphone</v-icon></v-btn>Trunkline Numbers:+63 2 8524-2181, +63 2 8524-2188</v-card-text>
                 <v-card-text class="pt-0"><v-btn icon size="small" class="mx-4 white--text"><v-icon>mdi-phone</v-icon></v-btn>(Recruitment Division)+639487249493</v-card-text>
                 <v-card-text class="pt-0"><v-btn icon size="small" class="mx-4 white--text"><v-icon>mdi-cellphone</v-icon></v-btn>(Recruitment Division)+639487249493</v-card-text>
               </v-container>
