@@ -17,12 +17,9 @@
         <Hiring/>
       </v-col>
     
-      <v-col cols="12 pb-10">
-        <v-container color="primary">
-          
-        </v-container>
+      <v-col cols="12">
+        <FaceBook />
       </v-col>
-  
     </v-row>
     <YwaFooter/>
    </v-app>
@@ -34,7 +31,7 @@ import YwaFooter from '../components/FooterLayout.vue'
 import about from '../components/AboutHome.vue'
 import AppProcess from '../components/ApplicationProcess.vue'
 import Hiring from '../components/WeAreHiring.vue'
-
+import FaceBook from '../components/FindUs.vue'
 
 export default {
   name: 'HomeView',
@@ -43,7 +40,8 @@ export default {
     YwaFooter,
     about,
     AppProcess,
-    Hiring
+    Hiring,
+    FaceBook
 
   
   }, 

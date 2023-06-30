@@ -11,7 +11,7 @@
                         <v-divider :thickness="3"></v-divider>
                         <p class="pt-5 pl-5 pr-5 pb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis soluta corrupti maxime molestiae id consectetur? Rerum hic magni assumenda quam eum incidunt dolorum nemo, ex pariatur quasi, sit officia cupiditate.</p>         
                         <v-col cols="auto" class="d-flex justify-center pb-5">
-                          <v-btn  size="x-large" color="primary"><h3>JOB DESCRIPTION</h3></v-btn>
+                          <v-btn  size="x-large" color="#FFC107"><h3>JOB DESCRIPTION</h3></v-btn>
                         </v-col>
                   </v-card>
                 </v-container>
@@ -26,7 +26,7 @@
                       <v-divider :thickness="3"></v-divider>
                       <p class="pt-5 pl-5 pr-5 pb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis soluta corrupti maxime molestiae id consectetur? Rerum hic magni assumenda quam eum incidunt dolorum nemo, ex pariatur quasi, sit officia cupiditate.</p>
                       <v-col cols="auto" class="d-flex justify-center pb-5">
-                          <v-btn  size="x-large" color="primary"><h3>JOB DESCRIPTION</h3></v-btn>
+                          <v-btn  size="x-large" color="#FFC107"><h3>JOB DESCRIPTION</h3></v-btn>
                       </v-col>
                   </div>
                 </v-card>
@@ -41,7 +41,7 @@
                       <v-divider :thickness="3"></v-divider>
                       <p class="pt-5 pl-5 pr-5 pb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis soluta corrupti maxime molestiae id consectetur? Rerum hic magni assumenda quam eum incidunt dolorum nemo, ex pariatur quasi, sit officia cupiditate.</p>
                       <v-col cols="auto" class="d-flex justify-center pb-5">
-                          <v-btn  size="x-large" color="primary"><h3>JOB DESCRIPTION</h3></v-btn>
+                          <v-btn  size="x-large" color="#FFC107"><h3>JOB DESCRIPTION</h3></v-btn>
                       </v-col>
                   </div>
                 </v-card>
