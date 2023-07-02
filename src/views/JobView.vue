@@ -1,88 +1,93 @@
 <template>
-        <v-row no-gutters>
-        <v-col cols="12 pt-8 pl-5 pr-5" class="bg-blue">
-                <v-row>
-                  <v-col col="12" sm="3">
-                    <v-text-field  class="bg-white" outlined label="Enter a Keyword"></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="3">
-                    <v-select outlined label="Job Qualification">item1</v-select>
-                  </v-col>
-                  <v-col cols="12" sm="3">
-                    <v-select  outlined label="Location">item1</v-select>
-                  </v-col>
-                  <v-col cols="12" sm="3">
-                    <v-card color="primary" outlined block><p style="padding-left:85px; padding-right:85px; padding-top:15px;">SEARCH</p></v-card>
-                  </v-col>
-                 </v-row>
-         </v-col>
-        <v-col cols="5">
-            <v-sheet class="pa-2 ma-2">
-                <v-card
-                    v-scroll.self="onScroll"
-                    class="overflow-y-auto"
-                    max-height="400"
-                >
-                    <v-banner
-                    class="justify-center text-h5 font-weight-light"
-                    sticky
-                    >
-                    Scroll Me - Method invoked
-
-                    <span
-                        class="font-weight-bold"
-                        v-text="scrollInvoked"
-                    ></span>
-
-                    times
-                    </v-banner>
-
-                    <v-card-text>
-                    <div
-                        v-for="n in 12"
-                        :key="n"
-                        class="mb-4"
-                    >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi commodi earum tenetur. Asperiores dolorem placeat ab nobis iusto culpa, autem molestias molestiae quidem pariatur. Debitis beatae expedita nam facere perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ducimus cupiditate rerum officiis consequuntur laborum doloremque quaerat ipsa voluptates, nobis nam quis nulla ullam at corporis, similique ratione quasi illo!
-                    </div>
-                    </v-card-text>
-                </v-card>
-            </v-sheet>
-        </v-col>
-        <v-col cols="7">
-            <v-sheet class="pa-2 ma-2">
-            .v-col-6
-            </v-sheet>
-        </v-col>
-        </v-row>
-   
- 
+  <v-app :style="{background: $vuetify.theme.themes.light.background}">
+    <v-row>
+      <v-col cols="12">
+        <v-card class="pt-10" style="background-image: linear-gradient(to right top, #07316f, #002d79, #002782, #131f89, #26108e);">
+          <v-container>
+            <v-row class="pb-5">
+              <v-col cols="12" sm="3">
+                <input class="pl-3 pr-3" style="background-color: aliceblue; height:50px; width:280px; color:#002782;" placeholder="Job Title, Keyword, Company">
+                <!---<v-text-field style="background-color: azure;" outlined placeholder="Enter a Keyword"></v-text-field> -->
+              </v-col>
+              <v-col cols="12" sm="3">
+                <select class="pl-3 pr-3" style="background-color: aliceblue; height: 50px; width: 280px;">
+                  <option>Select Country</option>
+                  <option>New Zealand</option>
+                  <option value="saab">Japan</option>
+                  <option value="mercedes">Auckland</option>
+                  <option value="audi">Australia</option>
+                </select>
+              </v-col>
+              <v-col cols="12" sm="4">
+                <select  class="pl-3 pr-3" style="background-color: aliceblue; height: 50px; width: 380px;">
+                  <option>All Job Specializations</option>
+                  <option>Healthcare</option>
+                  <option>Farming</option>
+                  <option>Manufacturing</option>
+                  <option>Electronic</option>
+                </select>
+              </v-col>
+              <v-col col="12" sm="2">
+                    <v-btn color="primary" style="height:50px; width: 150px;" density="comfortable"><h3>Search</h3></v-btn>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card>
+      </v-col>
+      <v-col cols="12" align="center">
+          <v-row>
+            <v-container>
+               <v-col cols="12" sm="9" v-for="(item, index) in items" :key="index">
+                  <v-card>
+                    <v-container>
+                      <v-row>
+                         <v-col cols="12" sm="4">
+                           <div style="align-items: center; padding:50px 5px 50px 5px;">
+                            <v-img  :max-width="200" :max-height="100" :src="item.src"></v-img>
+                           </div>
+                         </v-col>
+                         <v-divider :thickness="3" vertical></v-divider>
+                         <v-col cols="12" sm="8">
+                           <div align="left">
+                           <h2>Mechanical Maintainer (HD Fitters)</h2>
+                           <h3><v-icon>fa fa-location</v-icon>Austrilia<v-icon></v-icon> |  Accreditation: 10379443</h3>
+                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum reiciendis saepe id officiis nemo omnis ut architecto ullam hic sunt harum, iure tempora recusandae possimus inventore fugiat facilis dolorem enim.</p>
+                           </div>
+                           <div align="left">
+                            <v-btn color="#000046" outlined density="comfortable"><v-icon></v-icon>Read More</v-btn>
+                            <v-btn  class="ml-3 mr-3" color="primary" density="comfortable"><v-icon></v-icon>Apply Now</v-btn>
+                           </div>
+                         </v-col>
+                      </v-row>
+                    </v-container>
+                  </v-card>
+               </v-col>  
+            </v-container>
+          </v-row>
+      </v-col>
+    </v-row>
+    <YwaFooter />
+  </v-app>
 </template>
-<style scoped>
-v-row{
-    margin-top: 0 !important; 
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-bottom: 0 !important;
-    padding: 0, 0, 0, 0 !important;
-}
-.bg-blue{
-    background-image: linear-gradient(to right top, #0c3471, #002d74, #002677, #001d78, #081278);
-}
-.bg-white{
-    background-color: aliceblue;
-}
-</style>
 <script>
-  export default {
-    data: () => ({
-      scrollInvoked: 0,
-    }),
-
-    methods: {
-      onScroll () {
-        this.scrollInvoked++
-      },
-    },
+import YwaFooter from '../components/FooterLayout.vue'
+export default{
+  components: {
+    YwaFooter
+    
+  },
+  data() {
+    return{
+      items: [
+       { src: require('../assets/img/Pilbara_Iron.png') , position: 'Mechanical Maintainer (HD Fitters)', location: 'Austrilia' },
+       { src: require('../assets/img/Pilbara_Iron.png') },
+       { src: require('../assets/img/ad-coote-logo.png') },
+       { src: require('../assets/img/alrashed-logo-new-new.jpg') },
+      ]
+    }
   }
+}
 </script>
+
+<style>
+</style>
