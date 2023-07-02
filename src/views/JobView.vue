@@ -49,8 +49,8 @@
                          <v-divider :thickness="3" vertical></v-divider>
                          <v-col cols="12" sm="8">
                            <div align="left">
-                           <h2>Mechanical Maintainer (HD Fitters)</h2>
-                           <h3><v-icon>fa fa-location</v-icon>Austrilia<v-icon></v-icon> |  Accreditation: 10379443</h3>
+                           <h2>{{ item.position }}</h2>
+                           <h3><v-icon>fa fa-location</v-icon>{{ item.location }}<v-icon></v-icon> |  Accreditation: {{ item.AccNumber }}</h3>
                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum reiciendis saepe id officiis nemo omnis ut architecto ullam hic sunt harum, iure tempora recusandae possimus inventore fugiat facilis dolorem enim.</p>
                            </div>
                            <div align="left">
@@ -79,8 +79,16 @@ export default{
   data() {
     return{
       items: [
-       { src: require('../assets/img/Pilbara_Iron.png') , position: 'Mechanical Maintainer (HD Fitters)', location: 'Austrilia' },
-       { src: require('../assets/img/Pilbara_Iron.png') },
+       { src: require('../assets/img/Pilbara_Iron.png'), position: 'Mechanical Maintainer (HD Fitters)', location: 'Australia',
+         AccNumber: '10379443' },
+       { src: require('../assets/img/stellarlogo.png'), position: 'Scaffolder', location : 'New Zealand', AccNumber: '103618821'  },
+       { src: require('../assets/img/stellarlogo.png'), position: 'Steel Fixer', location : 'New Zealand', AccNumber: '103618821'  },
+       { src: require('../assets/img/stellarlogo.png'), position: 'Heavy Equivalent', location : 'New Zealand', AccNumber: '103618821'  },
+       { src: require('../assets/img/stellarlogo.png'), position: 'Heavy Equipment Operators', location : 'New Zealand', AccNumber: '103618821'  },
+       { src: require('../assets/img/stellarlogo.png'), position: 'Carpenter', location : 'New Zealand', AccNumber: '103618821'  },
+       { src: require('../assets/img/stellarlogo.png'), position: 'Drainlayer', location : 'New Zealand', AccNumber: '103618821'  },
+       { src: require('../assets/img/stellarlogo.png'), position: 'Electrician', location : 'New Zealand', AccNumber: '103618821'  },
+       { src: require('../assets/img/stellarlogo.png'), position: 'Tiler Roof', location : 'New Zealand', AccNumber: '103618821'  },
        { src: require('../assets/img/ad-coote-logo.png') },
        { src: require('../assets/img/alrashed-logo-new-new.jpg') },
       ]
