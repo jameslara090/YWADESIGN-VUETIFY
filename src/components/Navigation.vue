@@ -38,26 +38,45 @@
                     <div class="navtext">Job Search</div> 
                     </v-btn>
                     <!--Our Industries-->
-                    <v-btn
-                        :class="{ 'navtext-active': $route.name === 'OurIndustries' }"
-                        plain
-                        @click.prevent="OurIndustries"
-                        class="d-none d-sm-flex"
-                        density="compact"
-                    >  
-                    <div class="navtext">Our Industries</div> 
-                    </v-btn>
+                    <v-menu offset-y>
+                            <template v-slot:activator="{ on, attrs }">
+                            <v-btn
+                             plain
+                             class="d-none d-sm-flex"
+                             density="compact"
+                             v-bind="attrs" 
+                             v-on="on">
+                             <div class="navtext">Our Industries</div> 
+                            </v-btn>
+                            </template>
+
+                            <v-list>
+                            <v-list-item v-for="(item, index) in IndustriesItemsItems" :key="index" @click="navigate(item.route)">
+                                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                            </v-list-item>
+                            </v-list>
+                        </v-menu>
                     
                     <!--About Us-->
-                    <v-btn
-                        :class="{ 'navtext-active': $route.name === 'about' }"
-                        plain
-                        @click.prevent="aboutPage"
-                        class="d-none d-sm-flex"
-                        density="compact"
-                    >  
-                    <div class="navtext">About</div> 
-                    </v-btn>
+                       <v-menu offset-y>
+                            <template v-slot:activator="{ on, attrs }">
+                            <v-btn
+                             plain
+                             class="d-none d-sm-flex"
+                             density="compact"
+                             v-bind="attrs" 
+                             v-on="on">
+                             <div class="navtext">ABOUT</div> 
+                            </v-btn>
+                            </template>
+
+                            <v-list>
+                            <v-list-item v-for="(item, index) in menuItems" :key="index" @click="navigate(item.route)">
+                                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                            </v-list-item>
+                            </v-list>
+                        </v-menu>
+    
  
                     <!--Contact Us-->
                     <v-btn
@@ -104,7 +123,22 @@
     },
     data() {
         return {
-            isMobileView: false
+            isMobileView: false,
+            menuItems: [
+                { title: 'OUR SERVICES', route: '' },
+                { title: 'MISSION,VISION & QPS', route: '' },
+                { title: 'TRAINING CENTER', route: '' }
+            ],
+            IndustriesItemsItems: [
+                { title: 'HEALTHCARE', route: '' },
+                { title: 'HOSPALITY', route: '' },
+                { title: 'LOGISTICS', route: '' },
+                { title: 'MANUFACTURING', route: '' },
+                { title: 'TRANSPORT', route: '' },
+                { title: 'CONTRACTION', route: '' },
+
+            ],
+
         };
     },
     mounted(){
