@@ -21,6 +21,26 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
+    path: '/ywateams',
+    name: 'ywateams',
+    component: () => import(/* webpackChunkName: "ywateam" */ '../views/OurTeam.vue')
+  },
+  {
+    path: '/services',
+    name: 'services',
+    component: () => import(/* webpackChunkName: "services" */ '../views/ServicesView.vue')
+  },
+  {
+    path: '/mission',
+    name: 'mission',
+    component: () => import(/* webpackChunkName: "mission" */ '../views/MissionVision.vue')
+  },
+  {
+    path: '/training',
+    name: 'training',
+    component: () => import(/* webpackChunkName: "training" */ '../views/AboutTraining.vue')
+  },
+  {
     path: '/client',
     name: 'client',
     component: () => import(/* webpackChunkName: "client" */ '../views/ClientView.vue')

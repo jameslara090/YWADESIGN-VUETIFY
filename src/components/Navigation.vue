@@ -64,15 +64,16 @@
                              plain
                              class="d-none d-sm-flex"
                              density="compact"
-                             v-bind="attrs" 
+                             v-bind="attrs"
+                             :class="{ 'navtext-active': $route.name === 'about' }" 
                              v-on="on">
                              <div class="navtext">ABOUT</div> 
                             </v-btn>
                             </template>
 
                             <v-list>
-                            <v-list-item v-for="(item, index) in menuItems" :key="index" @click="navigate(item.route)">
-                                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                            <v-list-item v-for="(item, index) in menuItems"  :key="index" @click="navigate(item.route)">
+                                <v-list-item-title :class="{ 'navtext-active': $route.name =='item.route'}">{{ item.title }}</v-list-item-title>
                             </v-list-item>
                             </v-list>
                         </v-menu>
@@ -109,6 +110,7 @@
                
                 </div>
         </template>
+        <VueScrollProgress color="primary" hieght="20px"></VueScrollProgress>
        </v-menu>
  
       </v-app-bar>
@@ -125,9 +127,11 @@
         return {
             isMobileView: false,
             menuItems: [
-                { title: 'OUR SERVICES', route: '' },
-                { title: 'MISSION,VISION & QPS', route: '' },
-                { title: 'TRAINING CENTER', route: '' }
+                { title: 'ABOUT US', route: 'about' ,link: '' },
+                { title: 'OUR TEAM', route: 'ywateams' },
+                { title: 'OUR SERVICES', route: 'services' },
+                { title: 'MISSION,VISION & QPS', route: 'mission' },
+                { title: 'TRAINING CENTER', route: 'training' }
             ],
             IndustriesItemsItems: [
                 { title: 'HEALTHCARE', route: '' },
@@ -154,6 +158,11 @@
         beforeDestroy() {
         // Remove the event listener when the component is destroyed
          window.removeEventListener('resize', this.checkMobileView);
+        },
+        navigate(route){
+            if(this.$route.name != 'route') {
+                this.$router.push(route);
+            }    
         },
         loginPage() {
             if(this.$route.name != 'Login') {
@@ -206,4 +215,15 @@
     border-bottom: 5px solid #0c2fa1;
     color:rgb(0, 0, 0);
  }
+
+ /* play with some lines below */
+#progress-container-el {
+  /* background */
+  background-color: transparent !important;
+  top: calc(100% - 4px) !important; /* remove if Vue 3.x */
+}
+#progress-el {
+  /* progress bar */
+  background-color: red !important;
+}
  </style>
