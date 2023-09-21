@@ -1,99 +1,66 @@
 <template>
     <v-app class="" style="height: 0px;">
       <v-app-bar
-       app
-       flat 
+        app 
+        flat 
+        color="black"
       >
-      
+        
         <v-toolbar-title>
-          <v-img :max-width="185" :max-height="190" src="../assets/Ywa.png"  lazy-src="../assets/Ywa.png"></v-img>
-          </v-toolbar-title>
+         <h3 class="ml-10" style="color:white !important;"><v-icon :size="40" color="white">mdi mdi-draw-pen</v-icon>WBL</h3>
+        </v-toolbar-title>
           <v-spacer></v-spacer>
                     <!--Homepage-->
                    <v-btn v-if="!isMobileView"
-                        :class="{ 'navtext-active': $route.name === 'home' }"
+                        class="navtext-active"
                         plain
-                        @click.prevent="HomePage"
+                        @click="scroll('home')"
                         density="compact"
                     ><div class="navtext">Home</div></v-btn>
-                    
-                    <!--Clients-->
-                    <v-btn
-                        :class="{ 'navtext-active': $route.name === 'client' }"
+                    <!--Homepage-->
+                   <v-btn v-if="!isMobileView"
                         plain
-                        @click.prevent="ClientPage"
-                        class="d-none d-sm-flex"
+                        @click="scroll('aboutme')"
                         density="compact"
-                    >  
-                    <div class="navtext">Clients</div> 
-                    </v-btn>
-                    <!--Jobs-->
-                    <v-btn
-                        :class="{ 'navtext-active': $route.name === 'jobs' }"
+                    ><div class="navtext">About</div></v-btn>
+
+                     <!--Skill-->
+                     <v-btn v-if="!isMobileView"
+                        :class="{ 'navtext-active': $route.name === 'blog' }"
                         plain
-                        @click.prevent="JobsPage"
-                        class="d-none d-sm-flex"
+                        @click="scroll('passion')"
                         density="compact"
-                    >  
-                    <div class="navtext">Job Search</div> 
-                    </v-btn>
-                    <!--Our Industries-->
-                    <v-menu offset-y>
-                            <template v-slot:activator="{ on, attrs }">
-                            <v-btn
-                             plain
-                             class="d-none d-sm-flex"
-                             density="compact"
-                             v-bind="attrs" 
-                             v-on="on">
-                             <div class="navtext">Our Industries</div> 
-                            </v-btn>
-                            </template>
+                    ><div class="navtext">Services</div></v-btn>
 
-                            <v-list>
-                            <v-list-item v-for="(item, index) in IndustriesItemsItems" :key="index" @click="navigate(item.route)">
-                                <v-list-item-title>{{ item.title }}</v-list-item-title>
-                            </v-list-item>
-                            </v-list>
-                        </v-menu>
+
+                    <!--Project-->
+                    <v-btn v-if="!isMobileView"
+                        :class="{ 'navtext-active': $route.name === 'blog' }"
+                        plain
+                        @click="scroll('experience')"
+                        density="compact"
+                    ><div class="navtext">Experience</div></v-btn>
                     
-                    <!--About Us-->
-                       <v-menu offset-y>
-                            <template v-slot:activator="{ on, attrs }">
-                            <v-btn
-                             plain
-                             class="d-none d-sm-flex"
-                             density="compact"
-                             v-bind="attrs"
-                             :class="{ 'navtext-active': $route.name === 'about' }" 
-                             v-on="on">
-                             <div class="navtext">ABOUT</div> 
-                            </v-btn>
-                            </template>
-
-                            <v-list>
-                            <v-list-item v-for="(item, index) in menuItems"  :key="index" @click="navigate(item.route)">
-                                <v-list-item-title :class="{ 'navtext-active': $route.name =='item.route'}">{{ item.title }}</v-list-item-title>
-                            </v-list-item>
-                            </v-list>
-                        </v-menu>
-    
+                     <!--About-->
+                     <v-btn v-if="!isMobileView"
+                        :class="{ 'navtext-active': $route.name === 'blog' }"
+                        plain
+                        @click="scroll('work')"
+                        density="compact"
+                    ><div class="navtext">Work</div></v-btn>
+                    
  
                     <!--Contact Us-->
                     <v-btn
                         :class="{ 'navtext-active': $route.name === 'contact' }"
                         plain
-                        @click.prevent="ContactPage"
-                        class="d-none d-sm-flex"
+                        @click="scroll('contact')"
+                        class="d-none d-sm-flex mr-10"
                         density="compact"
                     >  
-                    <div class="navtext">Contact Us</div> 
+                    <div class="navtext">Contact</div> 
                     </v-btn>
          
- 
-            <v-col cols="auto" v-if="!isMobileView">
-             <v-btn @click.prevent="loginPage" color="#000046" outlined density="comfortable"><v-icon>mdi-login-variant</v-icon>Login</v-btn>
-            </v-col>
       
 
         <!--<Theme />-->  
@@ -110,11 +77,13 @@
                
                 </div>
         </template>
-        <VueScrollProgress color="primary" hieght="20px"></VueScrollProgress>
+        
        </v-menu>
  
       </v-app-bar>
+        
     </v-app>
+    
  </template>
  
  <script>
@@ -126,22 +95,6 @@
     data() {
         return {
             isMobileView: false,
-            menuItems: [
-                { title: 'ABOUT US', route: 'about' ,link: '' },
-                { title: 'OUR TEAM', route: 'ywateams' },
-                { title: 'OUR SERVICES', route: 'services' },
-                { title: 'MISSION,VISION & QPS', route: 'mission' },
-                { title: 'TRAINING CENTER', route: 'training' }
-            ],
-            IndustriesItemsItems: [
-                { title: 'HEALTHCARE', route: '' },
-                { title: 'HOSPALITY', route: '' },
-                { title: 'LOGISTICS', route: '' },
-                { title: 'MANUFACTURING', route: '' },
-                { title: 'TRANSPORT', route: '' },
-                { title: 'CONTRACTION', route: '' },
-
-            ],
 
         };
     },
@@ -159,47 +112,12 @@
         // Remove the event listener when the component is destroyed
          window.removeEventListener('resize', this.checkMobileView);
         },
-        navigate(route){
-            if(this.$route.name != 'route') {
-                this.$router.push(route);
-            }    
-        },
-        loginPage() {
-            if(this.$route.name != 'Login') {
-                this.$router.push({name: 'Login'});
-            }
-        },
-        HomePage() {
-            if(this.$route.name != 'home') {
-                this.$router.push({name: 'home'});
-                
-            }
-        },
-        ClientPage() {
-            if(this.$route.name != 'client') {
-                this.$router.push({name: 'client'});
-            }
-        },
-        JobsPage() {
-            if(this.$route.name != 'jobs') {
-                this.$router.push({name: 'jobs'});
-            }
-        },
-        OurIndustries() {
-            if(this.$route.name != 'OurIndustries') {
-                this.$router.push({name: 'OurIndustries'});
-            }
-        },
-        aboutPage() {
-            if(this.$route.name != 'about') {
-                this.$router.push({name: 'about'});
-            }
-        },
-        ContactPage() {
-            if(this.$route.name != 'contact') {
-                this.$router.push({name: 'contact'});
-            }
-        },
+        scroll(refName) {
+            
+            const element = document.getElementById(refName)
+            element.scrollIntoView({behavior: "smooth"})
+        }
+        
     },
  }
  </script>
@@ -208,12 +126,14 @@
  .navtext{
     font-family: sans-serif;
     font-size: 14px;
-    color:rgb(5, 7, 13);
+    color:white !important;
+    font-weight: bold;
     
  }
  .navtext-active{
-    border-bottom: 5px solid #0c2fa1;
-    color:rgb(0, 0, 0);
+    border-bottom: 5px solid #e8e7ee;
+    color:rgb(20, 20, 97);
+    text-decoration: #0c2fa1;
  }
 
  /* play with some lines below */

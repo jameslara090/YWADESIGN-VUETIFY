@@ -2,9 +2,8 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
-import VueScrollProgress from "vue-scroll-progress";
 
-Vue.use(Vuetify, VueScrollProgress);
+Vue.use(Vuetify);
 
 export default new Vuetify({
     theme:{
@@ -16,11 +15,12 @@ export default new Vuetify({
                info: '#2196F3',
                success: '#4CAF50',
                warning: '#FFC107',
-               background: '#E3F2FD'
+               background: '#fbfcfd'
        },
         }
     },
     icons: {
-        iconfont: 'fa' || 'md'
+        iconfont: 'fa' || 'md',
+
     }
 });
