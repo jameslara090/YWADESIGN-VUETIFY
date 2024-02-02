@@ -1,74 +1,160 @@
 <template>
     <div hide-details class="">
-        <v-img 
-        cover
-      src="../assets/background-mesh.jpg"
-      :height="600"
-      :width="1400"
-    >
-      <v-container fill-height fluid>
-        <v-row align="center" justify="center" class="pt-5">
-          <v-col align="center" justify="center" cols="12" md="6">
-            <v-img  height="500" width="500" src="../assets/avatar.png"></v-img>
-          </v-col>
-          <v-col cols="12" md="6">
-            <div class="">
-              <h1 class="pt-2 display-2" color="indigo">Hi There,</h1>
-              <h1 class="pt-2 display-2">I'm Wiljames Lara</h1>
-              <h2 class="pt-2 display-2">I am Web Developer</h2>
-              <p class="pt-7 pr-5" justify="center">I am a passionate and driven web developer with a keen interest in creating innovative and user-friendly websites. My journey into the world of web development began with a curiosity about how the internet works and the desire to build something that could impact people's lives positively. Since then, I have been on a continuous learning path, exploring various programming languages and web technologies.</p>
-              
-             <!--<div class="pt-7">
-                <v-btn color="primary" elavation="10">Read More</v-btn>
-              </div> -->
+              <v-img 
+              cover
+            src="../assets/night-hd-desktop.jpg"
+            :height="750"
+            :width="1400"
+            style="filter: grayscale(50%);"
+          >
+            <v-container fill-height fluid>
+              <v-row align="center" justify="center">
+                <v-col cols="12" md="12">
+                  <div class="text-center">
+                    <div style="border-bottom: 2px;">
+                      <h1 class="display-2" style="color:white">Hi, I'M WILJAMES</h1>
+                    </div>
+                     <h2 class="pt-3" style="color:white">Welcome to my Website!</h2>
+                     <code>
+                       <div>
+                         <h1 style="color:white">
+                            I'm a
+                            <span class="typed-text">{{ typeValue }}</span>
+                            <span class="blinking-cursor">|</span>
+                            <span class="cursor" :class="{ typing: typeStatus }">&nbsp;</span>
+                          </h1>
+                       </div>
+                     </code>
+                  </div>
+                </v-col>
+                <v-col cols="12" md="12">
+                  <div align="center" justify="center" >
+                    <v-btn
+                    icon
+                    :size="100"
+                    class="mt-5"
+                    >
+                      <button @click="scroll('aboutme')"><v-icon :size="50" color="white">mdi mdi-chevron-double-down</v-icon></button>
+                    </v-btn>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-img>
+        </div>
+</template>
 
-              <div class="pt-5">
-                  <v-btn icon color="indigo" variant="plain" size="small" class="mx-4 white--text"><v-icon>mdi-facebook</v-icon></v-btn>
-                  <v-btn icon color="indigo" variant="plain" size="small" class="mx-4 white--text"><v-icon>mdi-twitter</v-icon></v-btn>
-                  <v-btn icon color="indigo" variant="plain" size="small" class="mx-4 white--text"><v-icon>mdi-instagram</v-icon></v-btn>
-                  <v-btn icon color="indigo" variant="plain" size="small" class="mx-4 white--text"><v-icon>mdi-linkedin</v-icon></v-btn>
-              </div>
-            </div>
-          </v-col>
-          <v-col>
-            <div align="center" justify="center">
-              <v-btn
-              icon
-              :size="100"
-              >
-                <v-icon :size="50" color="indigo">fa fa-angle-down</v-icon>
-              </v-btn>
-            </div>
-          </v-col>
-
-         
-         
-        </v-row>
-      </v-container>
-    </v-img>
-    </div>
-  </template>
-  
-  <script>
+<script>
   export default {
-    data() {
-      return {
-        imageHeight: 400, // Customize the height of the background image
-        imageWidth: 800, // Customize the width of the background image
-      };
+    
+    data: () => {
+    return {
+      typeValue: "",
+      typeStatus: false,
+      displayTextArray: ["Front-End Developer", "Back-End Developer" ],
+      typingSpeed: 100,
+      erasingSpeed: 100,
+      newTextDelay: 2000,
+      displayTextArrayIndex: 0,
+      charIndex: 0,
+    };
+    
+  },
+  created() {
+    setTimeout(this.typeText, this.newTextDelay + 200);
+  },
+  methods: {
+        scroll(refName) {
+            const element = document.getElementById(refName)
+            element.scrollIntoView({behavior: "smooth"})
+        },
+      typeText() {
+      if (this.charIndex < this.displayTextArray[this.displayTextArrayIndex].length) {
+        if (!this.typeStatus) this.typeStatus = true;
+        this.typeValue += this.displayTextArray[this.displayTextArrayIndex].charAt(
+          this.charIndex
+        );
+        this.charIndex += 1;
+        setTimeout(this.typeText, this.typingSpeed);
+      } else {
+        this.typeStatus = false;
+        setTimeout(this.eraseText, this.newTextDelay);
+      }
     },
-  };
-  </script>
-  
-  <style>
-  /* Add any custom styles for your text here */
-  .text-white {
-    color: white;
+    eraseText() {
+      if (this.charIndex > 0) {
+        if (!this.typeStatus) this.typeStatus = true;
+        this.typeValue = this.displayTextArray[this.displayTextArrayIndex].substring(
+          0,
+          this.charIndex - 1
+        );
+        this.charIndex -= 1;
+        setTimeout(this.eraseText, this.erasingSpeed);
+      } else {
+        this.typeStatus = false;
+        this.displayTextArrayIndex += 1;
+        if (this.displayTextArrayIndex >= this.displayTextArray.length)
+          this.displayTextArrayIndex = 0;
+        setTimeout(this.typeText, this.typingSpeed + 1000);
+      }
+    },
   }
-  
-  .headline {
-    font-size: 24px;
-  }
-  
-  </style>
-  
+};
+</script>
+
+<style>
+    .blinking-cursor {
+    font-size: 2rem;
+    color: #dee3e9;
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;
+    -ms-animation: 1s blink step-end infinite;
+    -o-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+    }
+    @keyframes blink {
+    from,
+    to {
+        color: transparent;
+    }
+    50% {
+        color: #eceef0;
+    }
+    }
+    @-moz-keyframes blink {
+    from,
+    to {
+        color: transparent;
+    }
+    50% {
+        color: #eef1f3;
+    }
+    }
+    @-webkit-keyframes blink {
+    from,
+    to {
+        color: transparent;
+    }
+    50% {
+        color: #e6eaee;
+    }
+    }
+    @-ms-keyframes blink {
+    from,
+    to {
+        color: transparent;
+    }
+    50% {
+        color: #f3f5f7;
+    }
+    }
+    @-o-keyframes blink {
+    from,
+    to {
+        color: transparent;
+    }
+    50% {
+        color: #eaeef1;
+    }
+    }
+</style>
